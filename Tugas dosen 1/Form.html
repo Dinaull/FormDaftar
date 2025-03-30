@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran TK Al-Kautsar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Formulir Pendaftaran Peserta Didik Baru</h1>
+        <h1>✨TK Al-Kautsar✨</h1>
+    </header>
+    
+    <div class="form-container">
+        <h2>Isi Formulir Berikut!🌷</h2>
+            <form id="dataForm" onsubmit="return false;">
+                <table border="1">
+                    <tr>
+                        <td colspan="2"><h3>Data Diri</h3></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nama">Nama Lengkap:</label></td>
+                        <td><input type="text" id="nama" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="namaP">Nama Panggilan:</label></td>
+                        <td><input type="text" id="namaP" required></td>
+                    </tr>
+                    <tr>
+                        <td><label>Jenis Kelamin:</label></td>
+                        <td>
+                            <div class="radio-group">
+                              <label>
+                                <input type="radio" name="jenis_kelamin" value="Lelaki"> Lelaki
+                              </label>
+                              <label>
+                                <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
+                              </label>
+                            </div>
+                        </td>                          
+                    </tr>
+                    <tr>
+                        <td><label for="tempatLahir">Tempat Lahir:</label></td>
+                        <td><input type="text" id="tempatLahir" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tglLahir">Tanggal Lahir:</label></td>
+                        <td><input type="date" id="tglLahir" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="agama">Agama:</label></td>
+                        <td><input type="text" id="agama" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><h3>Data Orang Tua/Wali</h3></td>
+                    </tr>
+                    <tr>
+                        <td><label for="namaAyah">Nama Ayah:</label></td>
+                        <td><input type="text" id="namaAyah"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pekerjaanAyah">Pekerjaan Ayah:</label></td>
+                        <td>
+                            <select name="pekerjaanAyah" id="pekerjaanAyah">
+                                <option value="">Pilih Pekerjaan....</option>
+                                <option value="mahasiswa">Mahasiswa</option>
+                                <option value="pegawai_swasta">Pegawai Swasta</option>
+                                <option value="pegawai_negeri">Pegawai Negeri</option>
+                                <option value="wiraswasta">Wiraswasta</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="namaIbu">Nama Ibu:</label></td>
+                        <td><input type="text" id="namaIbu"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pekerjaanIbu">Pekerjaan Ibu:</label></td>
+                        <td>
+                            <select name="pekerjaanIbu" id="pekerjaanIbu">
+                                <option value="">Pilih Pekerjaan....</option>
+                                <option value="mahasiswa">Ibu Rumah Tangga</option>
+                                <option value="mahasiswa">Mahasiswa</option>
+                                <option value="pegawai_swasta">Pegawai Swasta</option>
+                                <option value="pegawai_negeri">Pegawai Negeri</option>
+                                <option value="wiraswasta">Wiraswasta</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="telepon">No. Telepon/HP:</label></td>
+                        <td><input type="number" id="telepon"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><h3>Alamat</h3></td>
+                    </tr>
+                    <tr>
+                        <td><label for="jalan">Jalan:</label></td>
+                        <td><input type="text" id="jalan"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="kecamatan">kecamatan:</label></td>
+                        <td>
+                            <select name="kecamatan" id="kecamatan">
+                                <option value="">Pilih kecamatan...</option>
+                                <option value="sbs">Sumbersari</option>
+                                <option value="arj">Arjasa</option>
+                                <option value="rbp">Rambipuji</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="kota">Kota/Kabupaten:</label></td>
+                        <td>
+                            <select name="kota" id="kota">
+                                <option value="">Pilih Kota/Kabupaten...</option>
+                                <option value="jbr">Jember</option>
+                                <option value="bws">Bondowoso</option>
+                                <option value="bwi">Banyuwangi</option>
+                                <option value="sby">Surabaya</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="provinsi">provinsi:</label></td>
+                        <td>
+                            <select name="provinsi" id="provinsi">
+                                <option value="">Pilih provinsi...</option>
+                                <option value="jatim">Jawa Timur</option>
+                                <option value="jateng">Jawa Tengah</option>
+                                <option value="jkt">Jakarta</option>
+                                <option value="jabar">Jawa Barat</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button type="button" onclick="tambahData()">Tambah Data</button>
+            </form>
+            
+            <div class="wrapper">
+                
+            </div>
+            <h3>Data yang Dimasukkan</h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nama Lengkap</th>
+                        <th>Nama Panggilan</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tempat Lahir</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Nama Ayah</th>
+                        <th>Pekerjaan Ayah</th>
+                        <th>Nama Ibu</th>
+                        <th>Pekerjaan Ibu</th>
+                        <th>No. Telepon/Hp</th>
+                        <th>Kelola</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelBody">
+                </tbody>
+            </table>
+            <script src="script.js"></script>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TK Al-Kautsar. All rights reserved.</p>
