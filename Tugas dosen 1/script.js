@@ -14,14 +14,54 @@ $(document).ready(function() {
         var kecamatan = $("#kecamatan").val();
         var kota = $("#kota").val();
         var provinsi = $("#provinsi").val();
+
+        var hanyaHuruf = /^[A-Za-z\s]+$/;
     
         if (!nama || !namaP || !jeniskelamin || !tempatLahir || !tglLahir || !namaAyah || !pekerjaanAyah || !namaIbu || !pekerjaanIbu || !telepon || !jalan || !kecamatan || !kota || !provinsi) {
             alert("Harap isi semua kolom!");
+
+            $("input:invalid, select:invalid").each(function () {
+                $(this).css("border", "2px solid red")
+                       .animate({ marginLeft: "5px" }, 100)
+                       .animate({ marginLeft: "-5px" }, 100)
+                       .animate({ marginLeft: "5px" }, 100)
+                       .animate({ marginLeft: "0px" }, 100);
+            });
+
+            return;
+        }
+
+
+        if (!hanyaHuruf.test(tempatLahir)) {
+            alert("Tempat Lahir hanya boleh berisi huruf!");
+
+            $("input:invalid, select:invalid").each(function () {
+                $(this).css("border", "2px solid red")
+                       .animate({ marginLeft: "5px" }, 100)
+                       .animate({ marginLeft: "-5px" }, 100)
+                       .animate({ marginLeft: "5px" }, 100)
+                       .animate({ marginLeft: "0px" }, 100);
+            });
+
+            return;
+        }
+
+        if (!hanyaHuruf.test(agama)) {
+            alert("Agama hanya boleh berisi huruf!");
+
+            $("input:invalid, select:invalid").each(function () {
+                $(this).css("border", "2px solid red")
+                       .animate({ marginLeft: "5px" }, 100)
+                       .animate({ marginLeft: "-5px" }, 100)
+                       .animate({ marginLeft: "5px" }, 100)
+                       .animate({ marginLeft: "0px" }, 100);
+            });
+            
             return;
         }
 
         var barisBaru = `
-        <tr>
+        <tr style="display: none;">
             <td>${nama}</td>
             <td>${namaP}</td>
             <td>${jeniskelamin}</td>
@@ -37,6 +77,8 @@ $(document).ready(function() {
         `;
 
         $("#tabelBody").append(barisBaru);
+        barisBaru.fadeIn(500);
+        showPopup("Data berhasil ditambahkan!");
 
         $("#nama, #namaP, #tempatLahir, #tglLahir, #namaAyah, #pekerjaanAyah, #namaIbu, #pekerjaanIbu, #telepon, #jalan").val("");
         $("#kecamatan, #kota, #provinsi").prop("selectedIndex", 0);
@@ -44,9 +86,16 @@ $(document).ready(function() {
     });
 
     $("#tabelBody").on("click", ".hapus", function() {
-        $(this).closest("tr").remove();
+        $(this).closest("tr").fadeOut(500, function() {
+            $(this).remove();
+            showPopup("Data berhasil dihapus!");
     });
 });
+
+function showPopup(message) {
+    $("#popupMessage").text(message); // Set pesan pop-up
+    $("#popup").fadeIn(500).delay(2000).fadeOut(500); // Efek animasi muncul & hilang
+}
 
 //     var genderValue = jeniskelamin.value;
 
