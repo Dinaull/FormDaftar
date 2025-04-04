@@ -1,15 +1,15 @@
 $(document).ready(function() {
     $("#tombolTambah").click(function() {
-        var nama = $("#nama").val;
-        var namaP = $("namaP").val;
+        var nama = $("#nama").val();
+        var namaP = $("namaP").val();
         var jeniskelamin = $('input[name="jenis_kelamin"]:checked').val();
-        var tempatLahir = $("tempatLahir").val;
-        var tglLahir = $("tglLahir").val;
-        var namaAyah = $("namaAyah").val;
-        var pekerjaanAyah = $("pekerjaanAyah").val;
-        var namaIbu = $("namaIbu").val;
-        var pekerjaanIbu = $("pekerjaanIbu").val;
-        var telepon = $("telepon").val;
+        var tempatLahir = $("tempatLahir").val();
+        var tglLahir = $("tglLahir").val();
+        var namaAyah = $("namaAyah").val();
+        var pekerjaanAyah = $("pekerjaanAyah").val();
+        var namaIbu = $("namaIbu").val();
+        var pekerjaanIbu = $("pekerjaanIbu").val();
+        var telepon = $("telepon").val();
     
         if (!nama || !namaP || !jeniskelamin || !tempatLahir || !tglLahir || !namaAyah || !pekerjaanAyah || !namaIbu || !pekerjaanIbu || !telepon || !jalan || !kecamatan || !kota || !provinsi) {
             alert("Harap isi semua kolom!");
