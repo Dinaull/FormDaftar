@@ -1,15 +1,4 @@
 $(document).ready(function() {
-    
-    var hanyaHuruf = /^[A-Za-z\s]+$/;
-    $("#tempatLahir, #agama").on("input", function() {
-        var value = $(this).val();
-        if (!hanyaHuruf.test(value)) {
-            $(this).css("border", "2px solid red");
-        } else {
-            $(this).css("border", "2px solid green");
-        }
-    });
-    
     $("#tombolTambah").click(function() {
         var nama = $("#nama").val();
         var namaP = $("#namaP").val();
@@ -27,7 +16,7 @@ $(document).ready(function() {
         var kota = $("#kota").val();
         var provinsi = $("#provinsi").val();
 
-        // var hanyaHuruf = /^[A-Za-z\s]+$/;
+        var hanyaHuruf = /^[A-Za-z\s]+$/;
     
         if (!nama || !namaP || !jeniskelamin || !tempatLahir || !tglLahir || !agama || !namaAyah || !pekerjaanAyah || !namaIbu || !pekerjaanIbu || !telepon || !jalan || !kecamatan || !kota || !provinsi) {
             alert("Harap isi semua kolom!");
@@ -43,15 +32,15 @@ $(document).ready(function() {
             return;
         }
 
-        // if (!hanyaHuruf.test(tempatLahir)) {
-        //     alert("Tempat Lahir hanya boleh berisi huruf!");
-        //     return;
-        // }
+        if (!hanyaHuruf.test(tempatLahir)) {
+            alert("Tempat Lahir hanya boleh berisi huruf!");
+            return;
+        }
 
-        // if (!hanyaHuruf.test(agama)) {
-        //     alert("Agama hanya boleh berisi huruf!");
-        //     return;
-        // }
+        if (!hanyaHuruf.test(agama)) {
+            alert("Agama hanya boleh berisi huruf!");
+            return;
+        }
 
         var barisBaru = `
         <tr style="display: none;">
