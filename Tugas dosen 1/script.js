@@ -16,7 +16,8 @@ $(document).ready(function() {
             return;
         }
 
-        var barisBaru = '<tr>
+        var barisBaru = `
+        <tr>
             <td>${nama}</td>
             <td>${namaP}</td>
             <td>${jeniskelamin}</td>
@@ -28,7 +29,8 @@ $(document).ready(function() {
             <td>${pekerjaanIbu}</td>
             <td>${telepon}</td>
             <td><button class="hapus">Hapus</button></td>
-            </tr>';
+        </tr>
+    `;
 
             $("#tabelBody").append(barisBaru);
 
