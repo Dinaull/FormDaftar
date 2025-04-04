@@ -42,6 +42,27 @@ $(document).ready(function() {
             return;
         }
 
+        if (!hanyaHuruf.test(nama) || nama.length > 50) {
+            alert("Nama lengkap hanya boleh berisi huruf dan maksimal 50 karakter!");
+            return;
+        }
+
+        if (!hanyaHuruf.test(namaP) || namaP.length > 10) {
+            alert("Nama panggilan hanya boleh berisi huruf dan maksimal 10 karakter!");
+            return;
+        }
+
+        if (!hanyaHuruf.test(namaAyah) || namaAyah.length > 50) {
+            alert("Nama Ayah hanya boleh berisi huruf dan maksimal 50 karakter!");
+            return;
+        }
+
+        if (!hanyaHuruf.test(namaIbu) || namaIbu.length > 50) {
+            alert("Nama Ibu hanya boleh berisi huruf dan maksimal 50 karakter!");
+            return;
+        }
+
+
         var barisBaru = `
         <tr style="display: none;">
             <td>${nama}</td>
