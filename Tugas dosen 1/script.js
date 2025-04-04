@@ -1,19 +1,20 @@
-function tambahData() {
-    var nama = document.getElementById("nama").value;
-    var namaP = document.getElementById("namaP").value;
-    var jeniskelamin = document.querySelector('input[name="jenis_kelamin"]:checked');
-    var tempatLahir = document.getElementById("tempatLahir").value;
-    var tglLahir = document.getElementById("tglLahir").value;
-    var namaAyah = document.getElementById("namaAyah").value;
-    var pekerjaanAyah = document.getElementById("pekerjaanAyah").value;
-    var namaIbu = document.getElementById("namaIbu").value;
-    var pekerjaanIbu = document.getElementById("pekerjaanIbu").value;
-    var telepon = document.getElementById("telepon").value;
-
-    if (!nama || !namaP || !jeniskelamin || !tempatLahir || !tglLahir || !namaAyah || !pekerjaanAyah || !namaIbu || !pekerjaanIbu || !telepon || !jalan || !kecamatan || !kota || !provinsi) {
-        alert("Harap isi semua kolom!");
-        return;
-    }
+$(document).ready(function() {
+    $("#tombolTambah").click(function() {
+        var nama = $("#nama").value;
+        var namaP = document.getElementById("namaP").value;
+        var jeniskelamin = document.querySelector('input[name="jenis_kelamin"]:checked');
+        var tempatLahir = document.getElementById("tempatLahir").value;
+        var tglLahir = document.getElementById("tglLahir").value;
+        var namaAyah = document.getElementById("namaAyah").value;
+        var pekerjaanAyah = document.getElementById("pekerjaanAyah").value;
+        var namaIbu = document.getElementById("namaIbu").value;
+        var pekerjaanIbu = document.getElementById("pekerjaanIbu").value;
+        var telepon = document.getElementById("telepon").value;
+    
+        if (!nama || !namaP || !jeniskelamin || !tempatLahir || !tglLahir || !namaAyah || !pekerjaanAyah || !namaIbu || !pekerjaanIbu || !telepon || !jalan || !kecamatan || !kota || !provinsi) {
+            alert("Harap isi semua kolom!");
+            return;
+        }
 
     var genderValue = jeniskelamin.value;
 
@@ -50,7 +51,7 @@ function tambahData() {
     if (radioChecked) {
         radioChecked.checked = false;
     }
-    document.getElementById("tempatLahir").value = "";
+    $("#tempatLahir").value = "";
     document.getElementById("tglLahir").value = "";
     document.getElementById("namaAyah").value = "";
     document.getElementById("pekerjaanAyah").value = "";
