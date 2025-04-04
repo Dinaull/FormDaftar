@@ -1,15 +1,19 @@
 $(document).ready(function() {
     $("#tombolTambah").click(function() {
         var nama = $("#nama").val();
-        var namaP = $("namaP").val();
+        var namaP = $("#namaP").val();
         var jeniskelamin = $('input[name="jenis_kelamin"]:checked').val();
-        var tempatLahir = $("tempatLahir").val();
-        var tglLahir = $("tglLahir").val();
-        var namaAyah = $("namaAyah").val();
-        var pekerjaanAyah = $("pekerjaanAyah").val();
-        var namaIbu = $("namaIbu").val();
-        var pekerjaanIbu = $("pekerjaanIbu").val();
-        var telepon = $("telepon").val();
+        var tempatLahir = $("#tempatLahir").val();
+        var tglLahir = $("#tglLahir").val();
+        var namaAyah = $("#namaAyah").val();
+        var pekerjaanAyah = $("#pekerjaanAyah").val();
+        var namaIbu = $("#namaIbu").val();
+        var pekerjaanIbu = $("#pekerjaanIbu").val();
+        var telepon = $("#telepon").val();
+        var jalan = $("#jalan").val();
+        var kecamatan = $("#kecamatan").val();
+        var kota = $("#kota").val();
+        var provinsi = $("#provinsi").val();
     
         if (!nama || !namaP || !jeniskelamin || !tempatLahir || !tglLahir || !namaAyah || !pekerjaanAyah || !namaIbu || !pekerjaanIbu || !telepon || !jalan || !kecamatan || !kota || !provinsi) {
             alert("Harap isi semua kolom!");
@@ -30,18 +34,19 @@ $(document).ready(function() {
             <td>${telepon}</td>
             <td><button class="hapus">Hapus</button></td>
         </tr>
-    `;
+        `;
 
-            $("#tabelBody").append(barisBaru);
+        $("#tabelBody").append(barisBaru);
 
-            $("#nama, #namaP, #tempatLahir, #tglLahir, #namaAyah, #pekerjaanAyah, #namaIbu, #pekerjaanIbu, #telepon").val("");
-            $('input[name="jenis_kelamin"]').prop("checked", false);
-        });
-
-        $("#tabelBody").on("click", ".hapus", function () {
-            $(this).closest("tr").remove();
-        });
+        $("#nama, #namaP, #tempatLahir, #tglLahir, #namaAyah, #pekerjaanAyah, #namaIbu, #pekerjaanIbu, #telepon, #jalan").val("");
+        $("#kecamatan, #kota, #provinsi").prop("selectedIndex", 0);
+        $('input[name="jenis_kelamin"]').prop("checked", false);
     });
+
+    $("#tabelBody").on("click", ".hapus", function() {
+        $(this).closest("tr").remove();
+    });
+});
 
 //     var genderValue = jeniskelamin.value;
 
