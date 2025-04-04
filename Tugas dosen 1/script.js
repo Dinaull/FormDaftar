@@ -5,6 +5,7 @@ $(document).ready(function() {
         var jeniskelamin = $('input[name="jenis_kelamin"]:checked').val();
         var tempatLahir = $("#tempatLahir").val();
         var tglLahir = $("#tglLahir").val();
+        var agama = $("#agama").val(); 
         var namaAyah = $("#namaAyah").val();
         var pekerjaanAyah = $("#pekerjaanAyah").val();
         var namaIbu = $("#namaIbu").val();
@@ -17,7 +18,7 @@ $(document).ready(function() {
 
         var hanyaHuruf = /^[A-Za-z\s]+$/;
     
-        if (!nama || !namaP || !jeniskelamin || !tempatLahir || !tglLahir || !namaAyah || !pekerjaanAyah || !namaIbu || !pekerjaanIbu || !telepon || !jalan || !kecamatan || !kota || !provinsi) {
+        if (!nama || !namaP || !jeniskelamin || !tempatLahir || !tglLahir || !agama || !namaAyah || !pekerjaanAyah || !namaIbu || !pekerjaanIbu || !telepon || !jalan || !kecamatan || !kota || !provinsi) {
             alert("Harap isi semua kolom!");
 
             $("input:invalid, select:invalid").each(function () {
@@ -31,32 +32,13 @@ $(document).ready(function() {
             return;
         }
 
-
         if (!hanyaHuruf.test(tempatLahir)) {
             alert("Tempat Lahir hanya boleh berisi huruf!");
-
-            $("input:invalid, select:invalid").each(function () {
-                $(this).css("border", "2px solid red")
-                       .animate({ marginLeft: "5px" }, 100)
-                       .animate({ marginLeft: "-5px" }, 100)
-                       .animate({ marginLeft: "5px" }, 100)
-                       .animate({ marginLeft: "0px" }, 100);
-            });
-
             return;
         }
 
         if (!hanyaHuruf.test(agama)) {
             alert("Agama hanya boleh berisi huruf!");
-
-            $("input:invalid, select:invalid").each(function () {
-                $(this).css("border", "2px solid red")
-                       .animate({ marginLeft: "5px" }, 100)
-                       .animate({ marginLeft: "-5px" }, 100)
-                       .animate({ marginLeft: "5px" }, 100)
-                       .animate({ marginLeft: "0px" }, 100);
-            });
-            
             return;
         }
 
@@ -67,6 +49,7 @@ $(document).ready(function() {
             <td>${jeniskelamin}</td>
             <td>${tempatLahir}</td>
             <td>${tglLahir}</td>
+            <td>${agama}</td>
             <td>${namaAyah}</td>
             <td>${pekerjaanAyah}</td>
             <td>${namaIbu}</td>
@@ -76,11 +59,13 @@ $(document).ready(function() {
         </tr>
         `;
 
-        $("#tabelBody").append(barisBaru);
-        barisBaru.fadeIn(500);
+        var $barisBaru = $(barisBaru).hide(); 
+        $("#tabelBody").append($barisBaru);
+        $barisBaru.fadeIn(500);
+
         showPopup("Data berhasil ditambahkan!");
 
-        $("#nama, #namaP, #tempatLahir, #tglLahir, #namaAyah, #pekerjaanAyah, #namaIbu, #pekerjaanIbu, #telepon, #jalan").val("");
+        $("#nama, #namaP, #tempatLahir, #tglLahir, #agama, #namaAyah, #pekerjaanAyah, #namaIbu, #pekerjaanIbu, #telepon, #jalan").val("");
         $("#kecamatan, #kota, #provinsi").prop("selectedIndex", 0);
         $('input[name="jenis_kelamin"]').prop("checked", false);
     });
@@ -89,13 +74,15 @@ $(document).ready(function() {
         $(this).closest("tr").fadeOut(500, function() {
             $(this).remove();
             showPopup("Data berhasil dihapus!");
+        });
     });
+
+    function showPopup(message) {
+        $("#popupMessage").text(message); 
+        $("#popup").fadeIn(500).delay(2000).fadeOut(500);
+    }
 });
 
-function showPopup(message) {
-    $("#popupMessage").text(message); // Set pesan pop-up
-    $("#popup").fadeIn(500).delay(2000).fadeOut(500); // Efek animasi muncul & hilang
-}
 
 //     var genderValue = jeniskelamin.value;
 
