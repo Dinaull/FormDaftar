@@ -69,6 +69,10 @@ $(document).ready(function() {
             return;
         }
 
+        if (jalan.length > 50){
+            alert("Alamat jalan maksimal 50 karakter!");
+            return;
+        }
         
         var barisBaru = `
         <tr style="display: none;">
