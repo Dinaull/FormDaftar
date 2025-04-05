@@ -63,6 +63,13 @@ $(document).ready(function() {
         }
 
 
+        var telepon = $("#telepon").val();
+        var hanyaAngka = /^[0-9]{11,13}$/;
+        if (!hanyaAngka.test(telepon)) {
+            alert("Nomor telepon hanya boleh berisi angka dan harus terdiri dari 11 hingga 13 digit!"); 
+            return;
+        }
+
         var barisBaru = `
         <tr style="display: none;">
             <td>${nama}</td>
